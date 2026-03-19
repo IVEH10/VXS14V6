@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared._VXS.Manpads.Components;
 using Content.Shared.Interaction;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Physics;
@@ -18,6 +19,7 @@ public sealed class PassiveRadioHeadingSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly RotateToFaceSystem _rotate = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -43,6 +45,15 @@ public sealed class PassiveRadioHeadingSystem : EntitySystem
 
     public void GetNewTarget(EntityUid uid, PassiveRadioHeadingComponent component, TransformComponent transform) // Get the closest valid target
     {
+        EntityUid? shooterGridUid = null;
+        VXSManpadsIffType? shooterIffType = null;
+        if (TryComp<ProjectileComponent>(uid, out var projectile) && TryComp<TransformComponent>(projectile.Shooter, out var shooterTransform))
+        {
+            shooterGridUid = shooterTransform.GridUid;
+            if (shooterGridUid.HasValue)
+                shooterIffType = GetGridIffType(shooterGridUid.Value);
+        }
+
         var closestDistance = float.MaxValue;
         EntityUid? closestGrid = null;
         var shipQuery = EntityQueryEnumerator<ShuttleConsoleComponent, TransformComponent>(); // get all shuttle consoles
@@ -67,13 +78,12 @@ public sealed class PassiveRadioHeadingSystem : EntitySystem
                 continue;
             }
 
-            if (TryComp<ProjectileComponent>(uid, out var projectile) && TryComp<TransformComponent>(projectile.Shooter, out var shooterTransform)) // get the shooter of the missile
-            {
-                if (shooterTransform.GridUid.HasValue && shooterTransform.GridUid == shipXform.GridUid) // if target is on the same grid as the shooter, skip it.
-                {
-                    continue;
-                }
-            }
+            if (shooterGridUid.HasValue && shooterGridUid == shipXform.GridUid) // if target is on the same grid as the shooter, skip it.
+                continue;
+
+            if (shooterIffType.HasValue && shipXform.GridUid.HasValue && GetGridIffType(shipXform.GridUid.Value) == shooterIffType.Value) // if target has the same IFF as the shooter, skip it.
+                continue;
+
             if (closestDistance > distance) // if this target is the closest target checked so far, save it.
             {
                 closestDistance = distance;
@@ -84,6 +94,15 @@ public sealed class PassiveRadioHeadingSystem : EntitySystem
         {
             component.TargetEntity = closestGrid;
         }
+    }
+
+    private VXSManpadsIffType? GetGridIffType(EntityUid gridUid)
+    {
+        var children = new HashSet<Entity<VXSIffTransponderComponent>>();
+        _lookup.GetChildEntities(gridUid, children);
+        foreach (var child in children)
+            return child.Comp.IffType;
+        return null;
     }
     public void PredictiveGuidance(EntityUid uid, PassiveRadioHeadingComponent comp, TransformComponent xform, float frameTime) // Predictive Guidance, predicts targets position at impact time.
     {
