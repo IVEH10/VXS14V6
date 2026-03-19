@@ -23,9 +23,6 @@ public sealed class MechEquipmentUiMessageRelayEvent : EntityEventArgs
 {
     public MechEquipmentUiMessage Message;
 
-    /// <summary>Net entity of the mech pilot who triggered the UI message.</summary>
-    public NetEntity Pilot = NetEntity.Invalid;
-
     public MechEquipmentUiMessageRelayEvent(MechEquipmentUiMessage message)
     {
         Message = message;

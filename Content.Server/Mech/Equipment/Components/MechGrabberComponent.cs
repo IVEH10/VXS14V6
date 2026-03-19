@@ -51,10 +51,4 @@ public sealed partial class MechGrabberComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public DoAfterId? DoAfter;
-
-    /// <summary>
-    /// Base time (in seconds) it takes for a captured entity to escape from the grabber.
-    /// </summary>
-    [DataField("baseResistTime")]
-    public float BaseResistTime = 4f;
 }

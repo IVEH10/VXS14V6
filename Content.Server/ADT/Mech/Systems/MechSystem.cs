@@ -3,10 +3,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Mech;
 using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
-using Robust.Server.Audio;
 using Robust.Server.GameObjects;
-using Content.Shared.Emp;
-using Content.Shared.ADT.Mech;
+using Content.Server.Emp;
 using Content.Shared.Mech.Equipment.Components;
 
 namespace Content.Server.Mech.Systems;
@@ -15,16 +13,14 @@ namespace Content.Server.Mech.Systems;
 public sealed partial class MechSystem
 {
     [Dependency] private readonly SharedMechSystem _mech = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
 
-    partial void InitializeADT()
+    private void InitializeADT()
     {
         SubscribeLocalEvent<MechComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<MechComponent, DamageModifyEvent>(OnDamageModify);
         SubscribeLocalEvent<MechComponent, MechEquipmentDestroyedEvent>(OnEquipmentDestroyed);
         SubscribeLocalEvent<MechComponent, MechTurnLightsEvent>(OnTurnLightsEvent);
         SubscribeLocalEvent<MechComponent, MechInhaleEvent>(OnToggleInhale);
-        SubscribeLocalEvent<MechComponent, MechGunReloadMessage>(ReceiveEquipmentUiMesssages);
     }
 
     private void OnToggleInhale(EntityUid uid, MechComponent component, MechInhaleEvent args)

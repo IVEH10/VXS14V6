@@ -119,7 +119,7 @@ public sealed class MechGunSystem : EntitySystem
         var magazine = TryMagazine(equip.EquipmentOwner.Value, comp);
         if (magazine == null || !_mech.TryChangeEnergy(equip.EquipmentOwner.Value, -comp.Capacity))
         {
-            var pilot = GetEntity(args.Pilot);
+            var pilot = GetEntity(args.Pilot) ?? EntityUid.Invalid;
             _audio.PlayPredicted(comp.NoAmmoForReload, pilot, equip.EquipmentOwner.Value);
             _mech.UpdateUserInterfaceByEquipment(uid);
             return;

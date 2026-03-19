@@ -3,8 +3,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
-using Content.Shared.DoAfter;
 
 namespace Content.Server.ADT.Mech.Equipment.Components;
 
@@ -43,7 +41,4 @@ public sealed partial class MechDrillComponent : Component
 
     public CancellationTokenSource? Token;
 }
-
-[Serializable, NetSerializable]
-public sealed partial class MechDrillDoAfterEvent : SimpleDoAfterEvent { }
 
