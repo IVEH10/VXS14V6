@@ -69,13 +69,9 @@ public sealed class PassiveRadioHeadingSystem : EntitySystem
 
             if (TryComp<ProjectileComponent>(uid, out var projectile) && TryComp<TransformComponent>(projectile.Shooter, out var shooterTransform)) // get the shooter of the missile
             {
-                var shooterGridUid = shooterTransform.GridUid;
-                if (TryComp<TransformComponent>(shipXform.GridUid, out var hitTransform))
+                if (shooterTransform.GridUid.HasValue && shooterTransform.GridUid == shipXform.GridUid) // if target is on the same grid as the shooter, skip it.
                 {
-                    if (shooterGridUid == hitTransform.GridUid) // if target is the shooter of the missile, skip it.
-                    {
-                        continue;
-                    }
+                    continue;
                 }
             }
             if (closestDistance > distance) // if this target is the closest target checked so far, save it.
