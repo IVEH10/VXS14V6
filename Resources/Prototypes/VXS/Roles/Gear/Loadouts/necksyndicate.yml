@@ -1,0 +1,15 @@
+- type: loadout
+  id: NeckArmbandRed
+  equipment:
+    neck: ClothingNeckArmbandRed
+
+- type: loadout
+  id: NeckArmbandGreen
+  equipment:
+    neck: ClothingNeckArmbandGreen
+
+- type: loadout
+  id: ChevronSyndyTeamLoadout
+  storage:
+    pocket1:
+    - ChevronTeamSyndicate

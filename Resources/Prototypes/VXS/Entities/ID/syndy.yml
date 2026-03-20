@@ -1,0 +1,85 @@
+# Headset
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltSyndy
+  name: syndicate headset
+  suffix: Syndy
+  components:
+  - type: Headset
+    keys:
+    - EncryptionKeyCommon
+
+# Dogtags
+
+- type: entity
+  parent: DogtagBase
+  id: DogtagSyndyCommander
+  name: syndicate dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf # TODO: replace with syndicate overlay state
+  - type: PresetIdCard
+    job: SyndyCommander
+
+- type: entity
+  parent: DogtagBase
+  id: DogtagSyndyOperative
+  name: syndicate dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: SyndyOperative
+
+- type: entity
+  parent: DogtagBase
+  id: DogtagSyndyMarksman
+  name: syndicate dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: SyndyMarksman
+
+- type: entity
+  parent: DogtagBase
+  id: DogtagSyndyAssaulter
+  name: syndicate dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: SyndyAssaulter
+
+- type: entity
+  parent: DogtagBase
+  id: DogtagSyndyMedic
+  name: syndicate dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: SyndyMedic
+
+- type: entity
+  parent: DogtagBase
+  id: DogtagSyndyPilot
+  name: syndicate dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: SyndyPilot

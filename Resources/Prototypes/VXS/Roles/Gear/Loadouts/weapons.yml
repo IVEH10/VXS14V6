@@ -17,3 +17,43 @@
   id: WeaponSMGWT550Loadout
   inhand:
   - WeaponSubMachineGunWt550
+
+- type: loadout
+  id: WeaponM90GLLoadout
+  inhand:
+  - WeaponRifleM90GrenadeLauncher
+
+- type: loadout
+  id: WeaponVereskLoadout
+  inhand:
+  - WeaponSMGVereskHeath
+
+- type: loadout
+  id: WeaponC20RLoadout
+  inhand:
+  - WeaponSubMachineGunC20r
+
+- type: loadout
+  id: WeaponSvyatLoadout
+  inhand:
+  - WeaponSniperSvyat
+
+- type: loadout
+  id: WeaponHristovLoadout
+  inhand:
+  - WeaponSniperHristov
+
+- type: loadout
+  id: WeaponEstocDMRLoadout
+  inhand:
+  - WeaponRifleEstoc
+
+- type: loadout
+  id: WeaponL6SawLoadout
+  inhand:
+  - WeaponLightMachineGunL6
+
+- type: loadout
+  id: WeaponBulldogLoadout
+  inhand:
+  - WeaponShotgunBulldog

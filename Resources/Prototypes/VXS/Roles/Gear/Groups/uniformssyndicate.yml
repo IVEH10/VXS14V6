@@ -1,0 +1,10 @@
+- type: loadoutGroup
+  id: UniformsSyndicate
+  name: loadout-group-vxs-uniforms
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - UniformCasualBlueLoadout
+  - UniformCasualRedLoadout
+  - UniformCasualGreenLoadout
+  - UniformCasualPurpleLoadout

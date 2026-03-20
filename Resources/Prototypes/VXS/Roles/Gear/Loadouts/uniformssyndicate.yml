@@ -1,0 +1,19 @@
+- type: loadout
+  id: UniformCasualBlueLoadout
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualBlue
+
+- type: loadout
+  id: UniformCasualRedLoadout
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualRed
+
+- type: loadout
+  id: UniformCasualGreenLoadout
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualGreen
+
+- type: loadout
+  id: UniformCasualPurpleLoadout
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCasualPurple

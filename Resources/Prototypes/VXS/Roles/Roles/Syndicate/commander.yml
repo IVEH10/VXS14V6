@@ -1,0 +1,33 @@
+- type: job
+  id: SyndyCommander
+  name: Field Commander
+  description: Lead the 110th AGr SOF Triglav. Bear the weight of command and bring victory to the Syndicate.
+  playTimeTracker: JobSyndyCommander
+  startingGear: SyndyCommanderGear
+  icon: "JobIconSyndyCommander"
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement # Minimum 25
+    requiredAge: 25
+  - !type:AgeRequirement # Maximum 55
+    requiredAge: 55
+    inverted: true
+  - !type:SpeciesRequirement
+    species:
+    - Human
+  access:
+  - Maintenance
+  - External
+  - Command
+  components:
+  - type: RoleTicketCost
+    ticketCost: 0
+    deathMessage: "Syndy Field Commander KIA. -10 tickets"
+
+- type: startingGear
+  id: SyndyCommanderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    id: DogtagSyndyCommander
+    ears: ClothingHeadsetAltSyndy

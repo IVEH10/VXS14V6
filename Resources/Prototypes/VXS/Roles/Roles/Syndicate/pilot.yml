@@ -1,0 +1,32 @@
+- type: job
+  id: SyndyPilot
+  name: Pilot
+  description: Fly the vehicles of the 110th AGr SOF Triglav. Get them in, get them out.
+  playTimeTracker: JobSyndyPilot
+  startingGear: SyndyPilotGear
+  icon: "JobIconSyndyPilot"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement # Minimum 18
+    requiredAge: 18
+  - !type:AgeRequirement # Maximum 45
+    requiredAge: 45
+    inverted: true
+  - !type:SpeciesRequirement
+    species:
+    - Human
+  access:
+  - Maintenance
+  - External
+  components:
+  - type: RoleTicketCost
+    ticketCost: 1
+    deathMessage: "Syndy Pilot KIA. -1 ticket"
+
+- type: startingGear
+  id: SyndyPilotGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    id: DogtagSyndyPilot
+    ears: ClothingHeadsetAltSyndy

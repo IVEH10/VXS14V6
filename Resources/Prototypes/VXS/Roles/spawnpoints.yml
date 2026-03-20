@@ -70,3 +70,75 @@
       - state: green
       - state: passenger
 
+- type: entity
+  id: SpawnPointSyndyCommander
+  parent: SpawnPointJobBase
+  name: Syndy Commander spawner
+  components:
+  - type: SpawnPoint
+    job_id: SyndyCommander
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+
+- type: entity
+  id: SpawnPointSyndyOperative
+  parent: SpawnPointJobBase
+  name: Syndy Operative spawner
+  components:
+  - type: SpawnPoint
+    job_id: SyndyOperative
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+
+- type: entity
+  id: SpawnPointSyndyMarksman
+  parent: SpawnPointJobBase
+  name: Syndy Marksman spawner
+  components:
+  - type: SpawnPoint
+    job_id: SyndyMarksman
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+
+- type: entity
+  id: SpawnPointSyndyAssaulter
+  parent: SpawnPointJobBase
+  name: Syndy Assaulter spawner
+  components:
+  - type: SpawnPoint
+    job_id: SyndyAssaulter
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+
+- type: entity
+  id: SpawnPointSyndyMedic
+  parent: SpawnPointJobBase
+  name: Syndy Combat Medic spawner
+  components:
+  - type: SpawnPoint
+    job_id: SyndyMedic
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+
+- type: entity
+  id: SpawnPointSyndyPilot
+  parent: SpawnPointJobBase
+  name: Syndy Pilot spawner
+  components:
+  - type: SpawnPoint
+    job_id: SyndyPilot
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+
