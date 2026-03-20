@@ -27,7 +27,7 @@
 - type: startingGear
   id: SolfedEngineerGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSolarGray
+    jumpsuit: ClothingUniformJumpsuitSolarGraySolfed
     id: DogtagSolfedEngineer
     ears: ClothingHeadsetAltSOLFED
     gloves: ClothingHandsGlovesCombatInsulated

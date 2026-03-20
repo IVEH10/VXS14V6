@@ -47,6 +47,30 @@
     job: SolfedCorpsman
 
 - type: entity
+  parent: DogtagBase
+  id: DogtagSolfedCommander
+  name: standart issue dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: SolfedCommander
+
+- type: entity
+  parent: DogtagBase
+  id: DogtagSolfedPilot
+  name: standart issue dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: SolfedPilot
+
+- type: entity
   parent: ShoulderboardBase
   id: ShoulderboardSolfedPrivate
   name: PVT shoulderboard # Рядовой

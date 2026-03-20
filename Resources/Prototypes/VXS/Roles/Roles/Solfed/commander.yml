@@ -1,0 +1,35 @@
+- type: job
+  id: SolfedCommander
+  name: Commander
+  description: Lead the soldiers of the Solar Federation Defense Armed Forces. Bear the weight of command with honor.
+  playTimeTracker: JobSFCommander
+  startingGear: SolfedCommanderGear
+  icon: "JobIconCommanderSolfed"
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement # Minimum 25
+    requiredAge: 25
+  - !type:AgeRequirement # Maximum 55
+    requiredAge: 55
+    inverted: true
+  - !type:SpeciesRequirement
+    species:
+    - Human
+  access:
+  - Maintenance
+  - External
+  - Command
+  components:
+  - type: RoleTicketCost
+    ticketCost: 10
+    deathMessage: "Solfed Commander KIA. -10 tickets"
+
+- type: startingGear
+  id: SolfedCommanderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSolarGoldSolfed
+    id: DogtagSolfedCommander
+    ears: ClothingHeadsetAltSOLFED
+    outerClothing: ClothingOuterArmorBasic
+    back: ClothingBackpackSatchel

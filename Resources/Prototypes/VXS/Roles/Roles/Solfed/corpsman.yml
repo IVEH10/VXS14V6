@@ -27,7 +27,7 @@
 - type: startingGear
   id: SolfedCorpsmanGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSolarGray
+    jumpsuit: ClothingUniformJumpsuitSolarGraySolfed
     id: DogtagSolfedCorpsman
     ears: ClothingHeadsetAltSOLFED
   inhand:

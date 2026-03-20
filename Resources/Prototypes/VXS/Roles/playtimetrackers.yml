@@ -9,3 +9,9 @@
 
 - type: playTimeTracker
   id: JobSFCorpsman
+
+- type: playTimeTracker
+  id: JobSFCommander
+
+- type: playTimeTracker
+  id: JobSFPilot

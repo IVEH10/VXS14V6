@@ -1,0 +1,37 @@
+- type: job
+  id: SolfedPilot
+  name: Pilot
+  description: Fly the vehicles of the Solar Federation Defense Armed Forces.
+  playTimeTracker: JobSFPilot
+  startingGear: SolfedPilotGear
+  icon: "JobIconPilotSolfed"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement # Minimum 20
+    requiredAge: 20
+  - !type:AgeRequirement # Maximum 45
+    requiredAge: 45
+    inverted: true
+  - !type:SpeciesRequirement
+    species:
+    - Human
+  access:
+  - Maintenance
+  - External
+  components:
+  - type: RoleTicketCost
+    ticketCost: 5
+    deathMessage: "Solfed Pilot KIA. -5 tickets"
+
+- type: startingGear
+  id: SolfedPilotGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSolarSolfed
+    id: DogtagSolfedPilot
+    ears: ClothingHeadsetAltSOLFED
+    outerClothing: ClothingOuterHardsuitEVA
+    back: ClothingBackpackSatchel
+  storage:
+    back:
+    - MultitoolUtility

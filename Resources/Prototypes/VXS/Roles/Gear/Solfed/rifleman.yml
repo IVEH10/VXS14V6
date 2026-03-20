@@ -59,3 +59,31 @@
   - WeaponsSolfedSpecialist
   - BeltsSolfedCorpsman
   - BackpacksLoadoutCorpsman
+
+- type: roleLoadout
+  id: JobSolfedCommander
+  groups:
+  - GlassesSolfedStandartissue
+  - ShoesCombatStandartissue
+  - GlovesCombatStandartissue
+  - MasksStandartissue
+  - HatsStandartissue
+  - NeckSolfedCommander
+  - WeaponsSolfedSpecialist
+  - BeltsSolfedCorpsman
+  - MedkitLoadout
+  - MRELoadout
+
+- type: roleLoadout
+  id: JobSolfedPilot
+  groups:
+  - GlassesSolfedStandartissue
+  - ShoesCombatStandartissue
+  - GlovesCombatStandartissue
+  - MasksStandartissue
+  - HatsStandartissue
+  - NeckSolfedPilot
+  - WeaponsSolfedSpecialist
+  - BeltsSolfedCorpsman
+  - MedkitLoadout
+  - MRELoadout

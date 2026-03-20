@@ -1,0 +1,11 @@
+- type: loadoutGroup
+  id: NeckSolfedPilot
+  name: loadout-group-vxs-neck
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - NeckArmbandBlue
+  - NeckArmbandYellow
+  - NeckShoulderboardCPLPilot
+  - NeckShoulderboardSGTPilot
+  - NeckShoulderboardSSGTPilot

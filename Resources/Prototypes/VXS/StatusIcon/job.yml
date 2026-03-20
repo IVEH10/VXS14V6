@@ -29,3 +29,19 @@
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: SFParamed
   jobName: Corpsman
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCommanderSolfed
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SolFed
+  jobName: Commander
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPilotSolfed
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SFPilot
+  jobName: Pilot
