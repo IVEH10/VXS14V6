@@ -1,7 +1,5 @@
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
-using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -160,22 +158,4 @@ public sealed partial class MechComponent : Component
     [DataField] public EntityUid? MechCycleActionEntity;
     [DataField] public EntityUid? MechUiActionEntity;
     [DataField] public EntityUid? MechEjectActionEntity;
-
-    /// <summary>
-    /// Damage modifier set applied to incoming damage. Used by mech armor equipment.
-    /// </summary>
-    [DataField]
-    public DamageModifierSet? Modifiers;
-
-    /// <summary>Sound played when lights are switched off.</summary>
-    [DataField]
-    public SoundSpecifier? MechLightsOffSound;
-
-    /// <summary>Sound played when lights are switched on.</summary>
-    [DataField]
-    public SoundSpecifier? MechLightsOnSound;
-
-    /// <summary>Sound played when an equipment item is destroyed.</summary>
-    [DataField]
-    public SoundSpecifier? EquipmentDestroyedSound;
 }

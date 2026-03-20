@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Server._VXS.ActiveRadioHeading.Components;
 using Content.Server.Shuttles.Components;
+using Content.Shared._VXS.Manpads.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Projectiles;
 using Robust.Server.GameObjects;
@@ -71,7 +72,8 @@ public sealed class VXSActiveRadioHeadingSystem : EntitySystem
         VXSActiveRadioHeadingComponent missileComp,
         TransformComponent missileXform,
         EntityQueryEnumerator<T, TransformComponent> query,
-        EntityUid? shooterGridUid)
+        EntityUid? shooterGridUid,
+        VXSManpadsIffType? shooterIffType = null)
         where T : IComponent
     {
         var closestDistance = float.MaxValue;
@@ -102,6 +104,9 @@ public sealed class VXSActiveRadioHeadingSystem : EntitySystem
                     continue;
             }
 
+            if (shooterIffType.HasValue && targetXform.GridUid.HasValue && GetGridIffType(targetXform.GridUid.Value) == shooterIffType.Value)
+                continue;
+
             var distance = MathF.Sqrt(distanceSq);
             if (!(distance < closestDistance))
                 continue;
@@ -115,15 +120,18 @@ public sealed class VXSActiveRadioHeadingSystem : EntitySystem
     private void GetNewTarget(EntityUid uid, VXSActiveRadioHeadingComponent component, TransformComponent transform)
     {
         EntityUid? shooterGridUid = null;
+        VXSManpadsIffType? shooterIffType = null;
         if (TryComp<ProjectileComponent>(uid, out var projectile) &&
             TryComp<TransformComponent>(projectile.Shooter, out var shooterTransform))
         {
             shooterGridUid = shooterTransform.GridUid;
+            if (shooterGridUid.HasValue)
+                shooterIffType = GetGridIffType(shooterGridUid.Value);
         }
 
         var retargetQuery = EntityQueryEnumerator<VXSRetargetComponent, TransformComponent>();
         var retargetTargetEntity =
-            FindClosestTargetInEnumerator(component, transform, retargetQuery, shooterGridUid);
+            FindClosestTargetInEnumerator(component, transform, retargetQuery, shooterGridUid, shooterIffType);
 
         if (retargetTargetEntity is not null)
         {
@@ -133,7 +141,7 @@ public sealed class VXSActiveRadioHeadingSystem : EntitySystem
 
         var consoleQuery = EntityQueryEnumerator<ShuttleConsoleComponent, TransformComponent>();
         var consoleTargetEntity =
-            FindClosestTargetInEnumerator(component, transform, consoleQuery, shooterGridUid);
+            FindClosestTargetInEnumerator(component, transform, consoleQuery, shooterGridUid, shooterIffType);
 
         if (!consoleTargetEntity.HasValue)
             return;
@@ -142,6 +150,15 @@ public sealed class VXSActiveRadioHeadingSystem : EntitySystem
         {
             SetNewTarget((uid, component), consoleTargetXform.GridUid.Value);
         }
+    }
+
+    private VXSManpadsIffType? GetGridIffType(EntityUid gridUid)
+    {
+        var children = new HashSet<Entity<VXSIffTransponderComponent>>();
+        _lookup.GetChildEntities(gridUid, children);
+        foreach (var child in children)
+            return child.Comp.IffType;
+        return null;
     }
 
     private void PredictiveGuidance(EntityUid uid,

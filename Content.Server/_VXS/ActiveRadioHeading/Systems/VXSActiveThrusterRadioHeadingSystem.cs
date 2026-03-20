@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Server._VXS.ActiveRadioHeading.Components;
 using Content.Server.Shuttles.Components;
+using Content.Shared._VXS.Manpads.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Projectiles;
 using Robust.Server.GameObjects;
@@ -73,7 +74,8 @@ public sealed class VXSActiveThrusterRadioHeadingSystem : EntitySystem
         VXSActiveThrusterRadioHeadingComponent missileComp,
         TransformComponent missileXform,
         EntityQueryEnumerator<ThrusterComponent, TransformComponent> query,
-        EntityUid? shooterGridUid)
+        EntityUid? shooterGridUid,
+        VXSManpadsIffType? shooterIffType = null)
     {
         var closestDistance = float.MaxValue;
         EntityUid? closestTargetUid = null;
@@ -107,6 +109,9 @@ public sealed class VXSActiveThrusterRadioHeadingSystem : EntitySystem
                     continue;
             }
 
+            if (shooterIffType.HasValue && targetXform.GridUid.HasValue && GetGridIffType(targetXform.GridUid.Value) == shooterIffType.Value)
+                continue;
+
             var distance = MathF.Sqrt(distanceSq);
             if (!(distance < closestDistance))
                 continue;
@@ -120,14 +125,17 @@ public sealed class VXSActiveThrusterRadioHeadingSystem : EntitySystem
     private void GetNewTarget(EntityUid uid, VXSActiveThrusterRadioHeadingComponent component, TransformComponent transform)
     {
         EntityUid? shooterGridUid = null;
+        VXSManpadsIffType? shooterIffType = null;
         if (TryComp<ProjectileComponent>(uid, out var projectile) &&
             TryComp<TransformComponent>(projectile.Shooter, out var shooterTransform))
         {
             shooterGridUid = shooterTransform.GridUid;
+            if (shooterGridUid.HasValue)
+                shooterIffType = GetGridIffType(shooterGridUid.Value);
         }
 
         var retargetQuery = EntityQueryEnumerator<VXSRetargetThrusterComponent, TransformComponent>();
-        var retargetTargetEntity = FindClosestRetarget(component, transform, retargetQuery, shooterGridUid);
+        var retargetTargetEntity = FindClosestRetarget(component, transform, retargetQuery, shooterGridUid, shooterIffType);
 
         if (retargetTargetEntity is not null)
         {
@@ -137,7 +145,7 @@ public sealed class VXSActiveThrusterRadioHeadingSystem : EntitySystem
 
         var thrusterQuery = EntityQueryEnumerator<ThrusterComponent, TransformComponent>();
         var thrusterTargetEntity =
-            FindClosestTargetInEnumerator(component, transform, thrusterQuery, shooterGridUid);
+            FindClosestTargetInEnumerator(component, transform, thrusterQuery, shooterGridUid, shooterIffType);
 
         if (!thrusterTargetEntity.HasValue)
             return;
@@ -149,11 +157,21 @@ public sealed class VXSActiveThrusterRadioHeadingSystem : EntitySystem
         }
     }
 
+    private VXSManpadsIffType? GetGridIffType(EntityUid gridUid)
+    {
+        var children = new HashSet<Entity<VXSIffTransponderComponent>>();
+        _lookup.GetChildEntities(gridUid, children);
+        foreach (var child in children)
+            return child.Comp.IffType;
+        return null;
+    }
+
     private EntityUid? FindClosestRetarget(
         VXSActiveThrusterRadioHeadingComponent missileComp,
         TransformComponent missileXform,
         EntityQueryEnumerator<VXSRetargetThrusterComponent, TransformComponent> query,
-        EntityUid? shooterGridUid)
+        EntityUid? shooterGridUid,
+        VXSManpadsIffType? shooterIffType = null)
     {
         var closestDistance = float.MaxValue;
         EntityUid? closestTargetUid = null;
@@ -182,6 +200,9 @@ public sealed class VXSActiveThrusterRadioHeadingSystem : EntitySystem
                 if (targetXform.GridUid.HasValue && shooterGridUid.Value == targetXform.GridUid.Value)
                     continue;
             }
+
+            if (shooterIffType.HasValue && targetXform.GridUid.HasValue && GetGridIffType(targetXform.GridUid.Value) == shooterIffType.Value)
+                continue;
 
             var distance = MathF.Sqrt(distanceSq);
             if (!(distance < closestDistance))
