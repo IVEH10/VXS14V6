@@ -2,8 +2,9 @@
 - type: weightedRandomSpecies
   id: SpeciesWeights
   weights:
-    Human: 5
-    Reptilian: 4
-    SlimePerson: 4
-    Diona: 2
-    Vulpkanin: 4
+    Human: 2
+    Reptilian: 1
+    # SlimePerson: 1 VXS
+    # Diona: 1 VXS
+    Vulpkanin: 1
+    Moth: 1 # VXS
