@@ -1,0 +1,11 @@
+- type: loadout
+  id: BoxMedkitSF1BLoadout
+  storage:
+    back:
+    - BoxMedkitSF1B
+
+- type: loadout
+  id: BoxMedkitSF1ALoadout
+  storage:
+    back:
+    - BoxMedkitSF1A

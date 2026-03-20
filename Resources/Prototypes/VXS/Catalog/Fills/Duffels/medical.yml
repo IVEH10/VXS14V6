@@ -1,0 +1,81 @@
+- type: entity
+  id: ClothingBackpackDuffelMedicalSurgical
+  name: surgical duffel bag
+  parent: ClothingBackpackDuffel
+  suffix: Filled, Surgical
+  components:
+  - type: StorageFill
+    contents:
+      - id: Hemostat
+      - id: Saw
+      - id: Drill
+      - id: Cautery
+      - id: Retractor
+      - id: Scalpel
+      - id: BoneGel
+      - id: BoneSetter
+      - id: VascularRecoupler
+      - id: Suture
+      - id: IVStand
+      - id: IVBagRingersolution
+      - id: FoodCondimentPacketKaolin
+
+- type: entity
+  id: ClothingBackpackDuffelMedicalTherapy
+  name: intensive therapy duffel bag
+  parent: ClothingBackpackDuffel
+  suffix: Filled, Therapy
+  components:
+  - type: StorageFill
+    contents:
+      - id: SutureSelfabsorbingVX
+        amount: 4
+      - id: GauzeCohesiveVX
+        amount: 4
+      - id: DefibrillatorCompact
+      - id: CharcoalPillPack
+      - id: SorbexPillPack
+      - id: SolutionGlassBottleBigPromedol
+        amount: 2
+      - id: SolutionGlassBottleBigCeftriaxone
+      - id: SolutionGlassBottleSmallNefopam
+      - id: SolutionGlassBottleSmallSaline
+      - id: SolutionGlassBottleBigRinger
+      - id: SolutionGlassBottleBigTranexamicAcid
+      - id: Syringe
+        amount: 2
+      - id: FoodCondimentPacketKaolin
+        amount: 2
+
+- type: entity
+  id: ClothingBackpackDuffelMedicalReanimation
+  name: reanimation duffel bag
+  parent: ClothingBackpackDuffel
+  suffix: Filled, Reanimation
+  components:
+  - type: StorageFill
+    contents:
+      - id: SutureSelfabsorbingVX
+        amount: 2
+      - id: Scalpel
+      - id: Cautery
+      - id: Hemostat
+      - id: SorbexPillPack
+        amount: 2
+      - id: FoodCondimentPacketKaolin
+        amount: 3
+      - id: DefibrillatorCompact
+      - id: EmergencyRollerBedSpawnFolded
+      - id: ChemistryBottleInaprovaline
+        amount: 2
+      - id: ChemistryBottleEpinephrine
+      - id: CharcoalPillPack
+      - id: SorbexPillPack
+      - id: SolutionGlassBottleBigPromedol
+      - id: SolutionGlassBottleBigCeftriaxone
+      - id: SolutionGlassBottleBigNefopam
+      - id: SolutionGlassBottleBigTranexamicAcid
+      - id: SyringeTranexamicAcidVX
+        amount: 2
+      - id: Syringe
+        amount: 2

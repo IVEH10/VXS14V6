@@ -1,0 +1,9 @@
+
+- type: loadoutGroup
+  id: LoadoutSolfedEngineerSpecial
+  name: loadout-group-vxs-special
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - C4BoxLoadout
+  - ThermobaricHADGL

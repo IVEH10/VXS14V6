@@ -8,3 +8,54 @@
   - ArmorPlatecarriersStandartissue
   - MasksStandartissue
   - HatsStandartissue
+  - NeckSolfedRifleman
+  - WeaponLecterRifle
+  - BeltsSolfedRifleman
+  - BackpacksLoadoutGeneral
+  - MedkitLoadout
+  - MRELoadout
+
+- type: roleLoadout
+  id: JobSolfedSeniorRifleman
+  groups:
+  - GlassesSolfedStandartissue
+  - ShoesCombatStandartissue
+  - GlovesCombatStandartissue
+  - ArmorPlatesStandartissue
+  - ArmorPlatecarriersStandartissue
+  - MasksStandartissue
+  - HatsStandartissue
+  - NeckSolfedRifleman
+  - WeaponsSeniorRifleman
+  - BeltsSolfedSeniorRifleman
+  - BackpacksLoadoutGeneral
+  - MedkitLoadout
+
+- type: roleLoadout
+  id: JobSolfedEngineer
+  groups:
+  - GlassesSolfedStandartissue
+  - ShoesCombatStandartissue
+  - ArmorPlatesStandartissue
+  - ArmorPlatecarriersStandartissue
+  - MasksStandartissue
+  - HatsStandartissue
+  - NeckSolfedRifleman
+  - MedkitLoadout
+  - WeaponsSolfedSpecialist
+  - BeltsSolfedEngineer
+  - LoadoutSolfedEngineerSpecial
+
+- type: roleLoadout
+  id: JobSolfedCorpsman
+  groups:
+  - GlassesSolfedStandartissue
+  - ShoesCombatStandartissue
+  - ArmorPlatesStandartissue
+  - ArmorPlatecarriersStandartissue
+  - MasksStandartissue
+  - HatsStandartissue
+  - NeckSolfedRifleman
+  - WeaponsSolfedSpecialist
+  - BeltsSolfedCorpsman
+  - BackpacksLoadoutCorpsman

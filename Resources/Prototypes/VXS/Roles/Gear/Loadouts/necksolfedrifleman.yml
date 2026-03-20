@@ -1,0 +1,36 @@
+- type: loadout
+  id: NeckArmbandBlue
+  equipment:
+    neck: ClothingNeckArmbandBlue
+
+- type: loadout
+  id: NeckArmbandYellow
+  equipment:
+    neck: ClothingNeckArmbandYellow
+
+- type: loadout
+  id: NeckShoulderboardPVT
+  equipment:
+    neck: ShoulderboardSolfedPrivate
+
+- type: loadout
+  id: NeckShoulderboardPFC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSFRifleman
+      time: 21600 # 6h
+  equipment:
+    neck: ShoulderboardSolfedEfreitor
+
+- type: loadout
+  id: NeckShoulderboardSGT
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSFRifleman
+      time: 360000 # 100h
+  equipment:
+    neck: ShoulderboardSolfedSergeant

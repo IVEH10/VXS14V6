@@ -1,0 +1,8 @@
+- type: loadoutGroup
+  id: MedkitLoadout
+  name: loadout-group-vxs-medkit
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - BoxMedkitSF1BLoadout
+  - BoxMedkitSF1ALoadout

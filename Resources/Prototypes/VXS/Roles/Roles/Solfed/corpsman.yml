@@ -1,10 +1,10 @@
 - type: job
-  id: SolfedRifleman
-  name: Rifleman
+  id: SolfedCorpsman
+  name: Corpsman
   description: Obey your orders, do your small part of big work.
-  playTimeTracker: JobSFRifleman
-  startingGear: SolfedRiflemanGear
-  icon: "JobIconRiflemanSolfed"
+  playTimeTracker: JobSFCorpsman
+  startingGear: SolfedCorpsmanGear
+  icon: "JobIconCorpsmanSolfed"
   supervisors: job-supervisors-hos
   canBeAntag: false
   requirements:
@@ -13,27 +13,22 @@
   - !type:AgeRequirement # Maximum 45
     requiredAge: 45
     inverted: true
-  - !type:SpeciesRequirement
+  - !type:SpeciesRequirement # Humans only
     species:
     - Human
-    - Reptilian
-    - Moth
   access:
   - Maintenance
   - External
   components:
   - type: RoleTicketCost
     ticketCost: 1
-    deathMessage: "Solfed Rifleman KIA. -1 ticket"
+    deathMessage: "Solfed Corpsman KIA. -1 ticket"
 
 - type: startingGear
-  id: SolfedRiflemanGear
+  id: SolfedCorpsmanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSolarGray
-    id: DogtagSolfedRifleman
+    id: DogtagSolfedCorpsman
     ears: ClothingHeadsetAltSOLFED
-  storage:
-    back:
-    - MultitoolUtility
   inhand:
-  - PaperSolfedBucklete
+    - BoxMRE

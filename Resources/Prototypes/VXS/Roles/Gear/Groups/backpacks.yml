@@ -1,0 +1,19 @@
+- type: loadoutGroup
+  id: BackpacksLoadoutGeneral
+  name: loadout-group-vxs-backpacks
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingBackpackLoadouts
+  - ClothingDuffelLoadouts
+  - ClothingMANPADSSF
+
+- type: loadoutGroup
+  id: BackpacksLoadoutCorpsman
+  name: loadout-group-vxs-backpacks
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingBackpackDuffelMedicalReanimationLoadout
+  - ClothingBackpackDuffelMedicalSurgicalLoadout
+  - ClothingBackpackDuffelMedicalTherapyLoadout

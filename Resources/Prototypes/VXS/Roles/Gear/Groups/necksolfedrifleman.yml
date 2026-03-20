@@ -1,0 +1,11 @@
+- type: loadoutGroup
+  id: NeckSolfedRifleman
+  name: loadout-group-vxs-neck
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - NeckArmbandBlue
+  - NeckArmbandYellow
+  - NeckShoulderboardPVT
+  - NeckShoulderboardPFC
+  - NeckShoulderboardSGT

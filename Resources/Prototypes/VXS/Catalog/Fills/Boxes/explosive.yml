@@ -1,0 +1,14 @@
+- type: entity
+  name: C4 kit
+  parent: BoxCardboard
+  id: BoxC4Kit
+  description: Box which contains some C4 blast charges.
+  components:
+  - type: StorageFill
+    contents:
+      - id: C4
+        amount: 4
+  - type: Sprite
+    layers:
+      - state: box
+      - state: writing

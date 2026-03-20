@@ -1,0 +1,31 @@
+- type: loadout
+  id: BoxMRELoadout
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Human
+  storage:
+    back:
+    - BoxMRE
+
+- type: loadout
+  id: BoxMRE1BLoadout
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Human
+    - Reptilian
+    - Moth
+  storage:
+    back:
+    - BoxMRE1B
+
+- type: loadout
+  id: BoxMRE2ALoadout
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Human
+  storage:
+    back:
+    - BoxMRE2A

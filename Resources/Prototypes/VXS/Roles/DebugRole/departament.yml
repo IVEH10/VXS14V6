@@ -3,7 +3,8 @@
   name: DEBUG
   description: VXS
   color: "#9FED58"
-  weight: 1
+  weight: 0
   roles:
   - Syndy
   - Solfed
+  editorHidden: true

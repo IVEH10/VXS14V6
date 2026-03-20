@@ -1,2 +1,11 @@
 - type: playTimeTracker
   id: JobSFRifleman
+
+- type: playTimeTracker
+  id: JobSFSeniorRifleman
+
+- type: playTimeTracker
+  id: JobSFEngineer
+
+- type: playTimeTracker
+  id: JobSFCorpsman

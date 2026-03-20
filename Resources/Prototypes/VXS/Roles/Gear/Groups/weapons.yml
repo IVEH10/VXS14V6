@@ -1,0 +1,26 @@
+- type: loadoutGroup
+  id: WeaponLecterRifle
+  name: loadout-group-vxs-weapons
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WeaponRifleLecterLoadout
+
+- type: loadoutGroup
+  id: WeaponsSeniorRifleman
+  name: loadout-group-vxs-weapons
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WeaponRifleLecterLoadout
+  - WeaponLMGRPKLoadout
+  - WeaponDMRExhaustLoadout
+
+- type: loadoutGroup
+  id: WeaponsSolfedSpecialist
+  name: loadout-group-vxs-weapons
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WeaponRifleLecterLoadout
+  - WeaponSMGWT550Loadout

@@ -1,0 +1,19 @@
+- type: loadout
+  id: WeaponRifleLecterLoadout
+  inhand:
+    - WeaponRifleLecter
+
+- type: loadout
+  id: WeaponLMGRPKLoadout
+  inhand:
+    - WeaponLMGRPK
+
+- type: loadout
+  id: WeaponDMRExhaustLoadout
+  inhand:
+    - WeaponSniperSSLCRExhaustVSSKVikhlop
+
+- type: loadout
+  id: WeaponSMGWT550Loadout
+  inhand:
+  - WeaponSubMachineGunWt550

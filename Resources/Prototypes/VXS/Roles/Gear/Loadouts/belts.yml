@@ -1,0 +1,39 @@
+- type: loadout
+  id: ClothingBeltMilitaryWebbingLecter
+  equipment:
+    belt: ClothingBeltMilitaryWebbingLecterMags
+
+- type: loadout
+  id: ClothingBeltMilitaryWebbingLecterCrowbarLoadout
+  equipment:
+    belt: ClothingBeltMilitaryWebbingLecterCrowbar
+
+- type: loadout
+  id: ClothingBeltMilitaryWebbingLecterGrenadesLoadout
+  equipment:
+    belt: ClothingBeltMilitaryWebbingLecterGrenades
+
+- type: loadout
+  id: ClothingBeltMilitaryWebbingRPKLoadout
+  equipment:
+    belt: ClothingBeltMilitaryWebbingRPK
+
+- type: loadout
+  id: ClothingBeltMilitaryWebbingExhaustLoadout
+  equipment:
+    belt: ClothingBeltMilitaryWebbingExhaust
+
+- type: loadout
+  id: ClothingBeltMilitaryWebbingEngineeringLecterLoadout
+  equipment:
+    belt: ClothingBeltMilitaryWebbingEngineeringLecter
+
+- type: loadout
+  id: ClothingBeltMilitaryWebbingEngineeringWTLoadout
+  equipment:
+    belt: ClothingBeltMilitaryWebbingEngineeringWT
+
+- type: loadout
+  id: ClothingBeltMilitaryWebbingWTLoadout
+  equipment:
+    belt: ClothingBeltMilitaryWebbingWT
