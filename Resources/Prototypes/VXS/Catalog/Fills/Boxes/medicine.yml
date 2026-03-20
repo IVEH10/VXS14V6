@@ -1,0 +1,38 @@
+- type: entity
+  name: Medkit type 1A MARCH-PAWS
+  parent: BoxCardboard
+  id: BoxMedkitSF1A
+  description: Basic MARCH-PAWS medkit.
+  components:
+  - type: StorageFill
+    contents:
+      - id: FoodCondimentPacketKaolin
+        amount: 2
+      - id: Splints
+      - id: SutureSelfabsorbingVX
+      - id: GauzeHemostaticVX
+      - id: SyringeNefopamVX
+      - id: SyringeAmoxiclavVX
+  - type: Sprite
+    layers:
+      - state: box
+      - state: writing
+
+- type: entity
+  name: Medkit type 1B Assault
+  parent: BoxCardboard
+  id: BoxMedkitSF1B
+  description: More operative medkit.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SyringeCeftriaxoneVX
+      - id: SyringePromedolVX
+      - id: SyringeTranexamicAcidVX
+      - id: TourniquetOffbrand
+      - id: SutureSelfabsorbingVX
+      - id: GauzeCohesiveVX
+  - type: Sprite
+    layers:
+      - state: box
+      - state: writing

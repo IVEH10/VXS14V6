@@ -7,9 +7,13 @@
   background: /Textures/LobbyScreens/kozelblyad.webp
 
 - type: lobbyBackground
-  id: PTSD
-  background: /Textures/LobbyScreens/PTSD.webp
-
-- type: lobbyBackground
   id: Izokorteks
   background: /Textures/LobbyScreens/izocortex.webp
+
+- type: lobbyBackground
+  id: Kosmos
+  background: /Textures/LobbyScreens/space.webp
+
+- type: lobbyBackground
+  id: Shot
+  background: /Textures/LobbyScreens/shot.webp

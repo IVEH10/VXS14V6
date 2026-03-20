@@ -11,6 +11,42 @@
     job: SolfedRifleman
 
 - type: entity
+  parent: DogtagBase
+  id: DogtagSolfedSeniorRifleman
+  name: standart issue dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: SolfedSeniorRifleman
+
+- type: entity
+  parent: DogtagBase
+  id: DogtagSolfedEngineer
+  name: standart issue dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: SolfedEngineer
+
+- type: entity
+  parent: DogtagBase
+  id: DogtagSolfedCorpsman
+  name: standart issue dogtag
+  components:
+  - type: Sprite
+    layers:
+    - state: dogtag
+    - state: tsf
+  - type: PresetIdCard
+    job: SolfedCorpsman
+
+- type: entity
   parent: ShoulderboardBase
   id: ShoulderboardSolfedPrivate
   name: PVT shoulderboard # Рядовой

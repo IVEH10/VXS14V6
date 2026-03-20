@@ -1,13 +1,13 @@
 - type: soundCollection
   id: LobbyMusicVXS
   files:
-    - /Audio/VXS/Lobby/doroga.ogg
-    - /Audio/VXS/Lobby/prosvistela.ogg
-    - /Audio/VXS/Lobby/noch.ogg
     - /Audio/VXS/Lobby/cvetok.ogg
+    - /Audio/VXS/Lobby/stratosphere.ogg
+    - /Audio/VXS/Lobby/constant.ogg
+    - /Audio/VXS/Lobby/constellations.ogg
+    - /Audio/VXS/Lobby/strana.ogg
+    - /Audio/VXS/Lobby/vesna.ogg
     - /Audio/VXS/Lobby/patroni.ogg
-    - /Audio/VXS/Lobby/pechal.ogg
-    - /Audio/VXS/Lobby/poteri.ogg
-    - /Audio/VXS/Lobby/dvestidvesti.ogg
-    - /Audio/VXS/Lobby/collection1.ogg
-    - /Audio/VXS/Lobby/collection2.ogg
+    - /Audio/VXS/Lobby/zvezdopad.ogg
+    - /Audio/VXS/Lobby/karavella.ogg
+    - /Audio/VXS/Lobby/gorod.ogg

@@ -6,3 +6,6 @@
   weight: 1
   roles:
   - SolfedRifleman
+  - SolfedSeniorRifleman
+  - SolfedEngineer
+  - SolfedCorpsman

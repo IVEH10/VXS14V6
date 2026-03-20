@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseSign
+  id: HoleFiveHundred
+  name: yama 500
+  description: "Let's go feed the animals!"
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: VXS/Structures/Wallmount/Signs/hole.rsi
+    state: icon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

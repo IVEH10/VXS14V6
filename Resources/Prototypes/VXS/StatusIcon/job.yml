@@ -5,3 +5,27 @@
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: SFSolider
   jobName: Rifleman
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSeniorRiflemanSolfed
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SFRifleman
+  jobName: SeniorRifleman
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconEngineerSolfed
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SFEngineer
+  jobName: Engineer
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCorpsmanSolfed
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SFParamed
+  jobName: Corpsman

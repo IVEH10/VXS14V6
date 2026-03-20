@@ -1,0 +1,34 @@
+- type: job
+  id: SolfedCorpsman
+  name: Corpsman
+  description: Obey your orders, do your small part of big work.
+  playTimeTracker: JobSFCorpsman
+  startingGear: SolfedCorpsmanGear
+  icon: "JobIconCorpsmanSolfed"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement # Minimum 18
+    requiredAge: 18
+  - !type:AgeRequirement # Maximum 45
+    requiredAge: 45
+    inverted: true
+  - !type:SpeciesRequirement # Humans only
+    species:
+    - Human
+  access:
+  - Maintenance
+  - External
+  components:
+  - type: RoleTicketCost
+    ticketCost: 1
+    deathMessage: "Solfed Corpsman KIA. -1 ticket"
+
+- type: startingGear
+  id: SolfedCorpsmanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSolarGray
+    id: DogtagSolfedCorpsman
+    ears: ClothingHeadsetAltSOLFED
+  inhand:
+    - BoxMRE

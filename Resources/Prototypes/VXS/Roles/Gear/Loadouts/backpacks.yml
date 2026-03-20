@@ -1,0 +1,30 @@
+
+- type: loadout
+  id: ClothingBackpackLoadouts
+  equipment:
+    back: ClothingBackpack
+
+- type: loadout
+  id: ClothingDuffelLoadouts
+  equipment:
+    back: ClothingBackpackDuffel
+
+- type: loadout
+  id: ClothingMANPADSSF
+  equipment:
+    back: WeaponLauncherMANPADSPlutSF
+
+- type: loadout
+  id: ClothingBackpackDuffelMedicalReanimationLoadout
+  equipment:
+    back: ClothingBackpackDuffelMedicalReanimation
+
+- type: loadout
+  id: ClothingBackpackDuffelMedicalSurgicalLoadout
+  equipment:
+    back: ClothingBackpackDuffelMedicalSurgical
+
+- type: loadout
+  id: ClothingBackpackDuffelMedicalTherapyLoadout
+  equipment:
+    back: ClothingBackpackDuffelMedicalTherapy

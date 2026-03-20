@@ -882,3 +882,71 @@
       right:
       - state: trash-inhand-right
         color: "#8B7356"
+
+- type: entity
+  parent: BaseItem
+  id: YashkinoCookie
+  name: yashkino amerikanskoe
+  description: Only for five hundreds.
+  components:
+  - type: Item
+    size: Small
+    storedOffset: -1,0
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: Yashkino-amerikanskoe
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodPacketMRETrash
+      - id: YashkinoOpen
+    sound:
+      path: /Audio/Effects/unwrap.ogg 
+
+- type: entity
+  parent: FoodSnackBase
+  id: YashkinoOpen
+  name: yashkino
+  description: Only for five hundreds. Tastes like shit.
+  components:
+  - type: Edible
+    trash:
+    - YashkinoTrash
+  - type: FlavorProfile
+    flavors:
+      - nutribrick
+  - type: Item
+    size: Small
+    storedOffset: -1,0
+    heldPrefix: nutribrick-open
+  - type: Tag
+    tags:
+      - ReptilianFood
+  - type: Sprite
+    state: Yashkino-lotok-full
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: YashkinoTrash
+  name: tara
+  components:
+  - type: Sprite
+    state: Yashkino-lotok
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: trash-inhand-left
+        color: "#4F54BE"
+      right:
+      - state: trash-inhand-right
+        color: "#4F54BE"

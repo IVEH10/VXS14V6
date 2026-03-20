@@ -13,9 +13,11 @@
   - !type:AgeRequirement # Maximum 45
     requiredAge: 45
     inverted: true
-  - !type:SpeciesRequirement # Only humans
+  - !type:SpeciesRequirement
     species:
     - Human
+    - Reptilian
+    - Moth
   access:
   - Maintenance
   - External
@@ -32,7 +34,6 @@
     ears: ClothingHeadsetAltSOLFED
   storage:
     back:
-    - BoxMRE2A
     - MultitoolUtility
   inhand:
   - PaperSolfedBucklete

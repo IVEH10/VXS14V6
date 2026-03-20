@@ -1,0 +1,36 @@
+- type: job
+  id: SolfedSeniorRifleman
+  name: Senior Rifleman
+  description: Obey your orders, do your small part of big work.
+  playTimeTracker: JobSFSeniorRifleman
+  startingGear: SolfedSeniorRiflemanGear
+  icon: "JobIconSeniorRiflemanSolfed"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement # Minimum 18
+    requiredAge: 18
+  - !type:AgeRequirement # Maximum 45
+    requiredAge: 45
+    inverted: true
+  - !type:SpeciesRequirement # Humans only
+    species:
+    - Human
+  access:
+  - Maintenance
+  - External
+  components:
+  - type: RoleTicketCost
+    ticketCost: 1
+    deathMessage: "Solfed Senior Rifleman KIA. -1 ticket"
+
+- type: startingGear
+  id: SolfedSeniorRiflemanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSolarGray
+    id: DogtagSolfedSeniorRifleman
+    ears: ClothingHeadsetAltSOLFED
+  storage:
+    back:
+    - BoxMRE2A
+    - MultitoolUtility

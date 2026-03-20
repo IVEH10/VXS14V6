@@ -1,0 +1,9 @@
+- type: loadoutGroup
+  id: MRELoadout
+  name: loadout-group-vxs-mre
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - BoxMRELoadout
+  - BoxMRE1BLoadout
+  - BoxMRE2ALoadout
