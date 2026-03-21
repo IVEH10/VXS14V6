@@ -41,6 +41,8 @@
     interfaces:
       enum.MechUiKey.Key:
         type: MechBoundUserInterface
+      enum.StorageUiKey.Key: # ADT edit
+        type: StorageBoundUserInterface
   - type: MeleeWeapon
     hidden: true
     attackRate: 0.75
@@ -84,6 +86,8 @@
       mech-pilot-slot: !type:ContainerSlot
       mech-equipment-container: !type:Container
       mech-battery-slot: !type:ContainerSlot
+      storagebase: !type:Container #ADT edit
+        ents: []
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic

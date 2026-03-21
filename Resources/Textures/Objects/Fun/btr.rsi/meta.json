@@ -1,0 +1,23 @@
+{
+  "copyright" : "Sprites by Log_Dog",
+  "license" : "CC-BY-SA-3.0",
+  "version": 1,
+  "size": {
+    "x": 128,
+    "y": 128
+  },
+    "states": [
+        {
+            "name": "k17",
+            "directions": 4
+        },
+        {
+            "name": "k17-open",
+            "directions": 4
+        },
+        {
+           "name": "k17-broken",
+           "directions": 4
+        }
+    ]
+}
