@@ -23,7 +23,7 @@ public abstract class SharedEmpSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EmpDisabledComponent, ExaminedEvent>(OnExamine);
+    //  SubscribeLocalEvent<EmpDisabledComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<EmpDisabledComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<EmpDisabledComponent, RejuvenateEvent>(OnRejuvenate);
     }

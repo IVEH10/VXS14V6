@@ -14,21 +14,23 @@ using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Storage.Components;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Robust.Shared.Random;
+using Content.Shared.Overlays;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared.Mech.EntitySystems;
 
 /// <summary>
 /// Handles all of the interactions, UI handling, and items shennanigans for <see cref="MechComponent"/>
 /// </summary>
-public abstract partial class SharedMechSystem : EntitySystem
+public abstract partial class SharedMechSystem : EntitySystem   // ADT - partial
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -40,16 +42,14 @@ public abstract partial class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<MechComponent, MechToggleEquipmentEvent>(OnToggleEquipmentAction);
+        // SubscribeLocalEvent<MechComponent, MechToggleEquipmentEvent>(OnToggleEquipmentAction);// ADT Commented
         SubscribeLocalEvent<MechComponent, MechEjectPilotEvent>(OnEjectPilotEvent);
         SubscribeLocalEvent<MechComponent, UserActivateInWorldEvent>(RelayInteractionEvent);
         SubscribeLocalEvent<MechComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MechComponent, DestructionEventArgs>(OnDestruction);
-        SubscribeLocalEvent<MechComponent, EntityStorageIntoContainerAttemptEvent>(OnEntityStorageDump);
         SubscribeLocalEvent<MechComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
         SubscribeLocalEvent<MechComponent, DragDropTargetEvent>(OnDragDrop);
         SubscribeLocalEvent<MechComponent, CanDropTargetEvent>(OnCanDragDrop);
@@ -58,16 +58,24 @@ public abstract partial class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, CanAttackFromContainerEvent>(OnCanAttackFromContainer);
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
 
-        InitializeRelay();
+        // ADT Mech start
+        SubscribeNetworkEvent<SelectMechEquipmentEvent>(OnMechEquipSelected);
+
+        SubscribeLocalEvent<MechComponent, MechGrabberEjectMessage>(ReceiveEquipmentUiMesssages);
+        SubscribeLocalEvent<MechComponent, MechSoundboardPlayMessage>(ReceiveEquipmentUiMesssages);
+
+        InitializeADT();
+        // ADT Mech end
     }
 
-    private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
-    {
-        if (args.Handled)
-            return;
-        args.Handled = true;
-        CycleEquipment(uid);
-    }
+    // ADT Commented
+    // private void OnToggleEquipmentAction(EntityUid uid, MechComponent component, MechToggleEquipmentEvent args)
+    // {
+    //     if (args.Handled)
+    //         return;
+    //     args.Handled = true;
+    //     CycleEquipment(uid);
+    // }
 
     private void OnEjectPilotEvent(EntityUid uid, MechComponent component, MechEjectPilotEvent args)
     {
@@ -106,12 +114,6 @@ public abstract partial class SharedMechSystem : EntitySystem
         BreakMech(uid, component);
     }
 
-    private void OnEntityStorageDump(Entity<MechComponent> entity, ref EntityStorageIntoContainerAttemptEvent args)
-    {
-        // There's no reason we should dump into /any/ of the mech's containers.
-        args.Cancelled = true;
-    }
-
     private void OnGetAdditionalAccess(EntityUid uid, MechComponent component, ref GetAdditionalAccessEvent args)
     {
         var pilot = component.PilotSlot.ContainedEntity;
@@ -142,6 +144,13 @@ public abstract partial class SharedMechSystem : EntitySystem
         _actions.AddAction(pilot, ref component.MechCycleActionEntity, component.MechCycleAction, mech);
         _actions.AddAction(pilot, ref component.MechUiActionEntity, component.MechUiAction, mech);
         _actions.AddAction(pilot, ref component.MechEjectActionEntity, component.MechEjectAction, mech);
+        // ADT Content start
+        _actions.AddAction(pilot, ref component.MechInhaleActionEntity, component.MechInhaleAction, mech);
+        _actions.AddAction(pilot, ref component.MechTurnLightsActionEntity, component.MechTurnLightsAction, mech);
+
+        var ev = new SetupMechUserEvent(pilot);
+        RaiseLocalEvent(mech, ref ev);
+        // ADT Content end
     }
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
@@ -155,7 +164,7 @@ public abstract partial class SharedMechSystem : EntitySystem
     }
 
     /// <summary>
-    /// Destroys the mech, removing the user and ejecting anything contained.
+    /// Destroys the mech, removing the user and ejecting all installed equipment.
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="component"></param>
@@ -198,7 +207,15 @@ public abstract partial class SharedMechSystem : EntitySystem
         component.CurrentSelectedEquipment = equipmentIndex >= allEquipment.Count
             ? null
             : allEquipment[equipmentIndex];
-
+        // ADT Content start
+        while (TryComp<MechEquipmentComponent>(component.CurrentSelectedEquipment, out var equipment) && equipment.CanBeUsed == false)
+        {
+            equipmentIndex++;
+            component.CurrentSelectedEquipment = equipmentIndex >= allEquipment.Count
+                ? null
+                : allEquipment[equipmentIndex];
+        }
+        // ADT Content end
         var popupString = component.CurrentSelectedEquipment != null
             ? Loc.GetString("mech-equipment-select-popup", ("item", component.CurrentSelectedEquipment))
             : Loc.GetString("mech-equipment-select-none-popup");
@@ -245,19 +262,14 @@ public abstract partial class SharedMechSystem : EntitySystem
     /// <param name="toRemove"></param>
     /// <param name="component"></param>
     /// <param name="equipmentComponent"></param>
-    /// <param name="forced">
-    ///     Whether or not the removal can be cancelled, and if non-mech equipment should be ejected.
-    /// </param>
+    /// <param name="forced">Whether or not the removal can be cancelled</param>
     public void RemoveEquipment(EntityUid uid, EntityUid toRemove, MechComponent? component = null,
         MechEquipmentComponent? equipmentComponent = null, bool forced = false)
     {
         if (!Resolve(uid, ref component))
             return;
 
-        // When forced, we also want to handle the possibility that the "equipment" isn't actually equipment.
-        // This /shouldn't/ be possible thanks to OnEntityStorageDump, but there's been quite a few regressions
-        // with entities being hardlock stuck inside mechs.
-        if (!Resolve(toRemove, ref equipmentComponent) && !forced)
+        if (!Resolve(toRemove, ref equipmentComponent))
             return;
 
         if (!forced)
@@ -274,9 +286,7 @@ public abstract partial class SharedMechSystem : EntitySystem
         if (component.CurrentSelectedEquipment == toRemove)
             CycleEquipment(uid, component);
 
-        if (forced && equipmentComponent != null)
-            equipmentComponent.EquipmentOwner = null;
-
+        equipmentComponent.EquipmentOwner = null;
         _container.Remove(toRemove, component.EquipmentContainer);
         UpdateUserInterface(uid, component);
     }
@@ -293,8 +303,8 @@ public abstract partial class SharedMechSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return false;
 
-        if (component.Energy + delta < 0)
-            return false;
+        // if (component.Energy + delta < 0)    // ADT Commented
+        //     return false;                    // Почему тут стоит эта проверка, если используется Math.Clamp()?
 
         component.Energy = FixedPoint2.Clamp(component.Energy + delta, 0, component.MaxEnergy);
         Dirty(uid, component);
@@ -407,6 +417,16 @@ public abstract partial class SharedMechSystem : EntitySystem
         RemoveUser(uid, pilot);
         _container.RemoveEntity(uid, pilot);
         UpdateAppearance(uid, component);
+        // ADT Content start
+        if (_net.IsClient && _timing.IsFirstTimePredicted)
+        {
+            var ev = new CloseMechMenuEvent();
+            RaiseLocalEvent(pilot, ev);
+        }
+
+        RemComp<NoRotateOnMoveComponent>(uid);
+        RemComp<ShowHealthBarsComponent>(pilot);
+        // ADT Content end
         return true;
     }
 
@@ -465,7 +485,6 @@ public abstract partial class SharedMechSystem : EntitySystem
 
         args.CanDrop |= !component.Broken && CanInsert(uid, args.Dragged, component);
     }
-
 }
 
 /// <summary>

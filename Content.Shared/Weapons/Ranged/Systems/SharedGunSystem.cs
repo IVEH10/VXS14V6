@@ -8,6 +8,7 @@ using Content.Shared.CombatMode;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
+using Content.Shared.Gravity;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
@@ -26,6 +27,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
@@ -33,6 +35,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Mech.Components;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -89,7 +92,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         InitializeClothing();
         InitializeContainer();
         InitializeSolution();
-
+        InitializeMechGun();    // ADT Mech Gun
         // Interactions
         SubscribeLocalEvent<GunComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerb);
         SubscribeLocalEvent<GunComponent, ExaminedEvent>(OnExamine);
@@ -136,6 +139,13 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (ent != GetEntity(msg.Gun))
             return;
 
+        // ADT Content start
+        if (TryComp<MechPilotComponent>(user.Value, out var mechPilot))
+        {
+            user = mechPilot.Mech;
+        }
+        // ADT Content end
+
         gun.ShootCoordinates = GetCoordinates(msg.Coordinates);
         gun.Target = GetEntity(msg.Target);
         AttemptShoot(user.Value, ent, gun);
@@ -170,6 +180,19 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         gunEntity = default;
         gunComp = null;
+
+        // ADT Content start
+        if (TryComp<MechPilotComponent>(entity, out var mechPilot) &&
+            TryComp<MechComponent>(mechPilot.Mech, out var mech) &&
+            mech.CurrentSelectedEquipment.HasValue &&
+            TryComp<GunComponent>(mech.CurrentSelectedEquipment.Value, out var mechGun))
+        {
+            gunEntity = mech.CurrentSelectedEquipment.Value;
+            gunComp = mechGun;
+            return true;
+        }
+        // ADT Content end
+
 
         if (_hands.GetActiveItem(entity) is { } held &&
             TryComp(held, out GunComponent? gun))

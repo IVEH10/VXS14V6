@@ -7,10 +7,9 @@ using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 namespace Content.Client.Mech;
 
 /// <inheritdoc/>
-public sealed class MechSystem : SharedMechSystem
+public sealed partial class MechSystem : SharedMechSystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -18,6 +17,8 @@ public sealed class MechSystem : SharedMechSystem
         base.Initialize();
 
         SubscribeLocalEvent<MechComponent, AppearanceChangeEvent>(OnAppearanceChanged);
+
+        InitializeADT();    // ADT tweak (да ладно)
     }
 
     private void OnAppearanceChanged(EntityUid uid, MechComponent component, ref AppearanceChangeEvent args)
@@ -25,7 +26,7 @@ public sealed class MechSystem : SharedMechSystem
         if (args.Sprite == null)
             return;
 
-        if (!_sprite.LayerExists((uid, args.Sprite), MechVisualLayers.Base))
+        if (!args.Sprite.TryGetLayer((int)MechVisualLayers.Base, out var layer))
             return;
 
         var state = component.BaseState;
@@ -41,7 +42,7 @@ public sealed class MechSystem : SharedMechSystem
             drawDepth = DrawDepth.SmallMobs;
         }
 
-        _sprite.LayerSetRsiState((uid, args.Sprite), MechVisualLayers.Base, state);
-        _sprite.SetDrawDepth((uid, args.Sprite), (int)drawDepth);
+        layer.SetState(state);
+        args.Sprite.DrawDepth = (int)drawDepth;
     }
 }
