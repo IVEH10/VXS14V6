@@ -231,7 +231,7 @@
   - type: Gun
     fireRate: 7
     minAngle: 1
-    maxAngle: 16
+    maxAngle: 8 # VXS
     angleIncrease: 2
     angleDecay: 24
     selectedMode: FullAuto
@@ -335,7 +335,7 @@
     reloadTime: 5
   - type: UIFragment
     ui: !type:MechGunUi
- 
+
 
 - type: entity
   name: SRM-8 Missile Rack
@@ -437,7 +437,7 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: BallisticMechAmmoProvider
-    proto: CartridgeArtillery57mmHE
+    proto: CartridgeArtillery57mm
     shots: 50
     capacity: 50
     ammoType: 57mm

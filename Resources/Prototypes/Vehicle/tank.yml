@@ -2,7 +2,6 @@
   id: SDVatTank
   parent: BaseMech
   name: T62M-1
-  description: fucking niggers kill yourself
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -89,7 +88,6 @@
   id: Abrams
   parent: SDVatTank
   name: M1A1 "Abrams"
-  description: fucking niggers kill yourself
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -269,8 +267,8 @@
 - type: entity
   id: BTRhexalitk17
   parent: SDVatTank
-  name: k17 Hexalit
-  description: fucking niggers kill yourself
+  name: IFV-17 Hexalit
+  description: An infantry fighting vehicle made of plastic, or something like that.
   components:
   - type: Sprite
     drawdepth: Mobs

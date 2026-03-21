@@ -25,11 +25,7 @@ public sealed class MechEquipmentUiMessageRelayEvent : EntityEventArgs
     public MechEquipmentUiMessage Message;
     public NetEntity? Pilot;    // ADT Mech
 
-<<<<<<< HEAD
-    public MechEquipmentUiMessageRelayEvent(MechEquipmentUiMessage message)
-=======
     public MechEquipmentUiMessageRelayEvent(MechEquipmentUiMessage message, NetEntity? pilot)
->>>>>>> 425b367835e49081a8eb8fd47bdf9c1583d8b955
     {
         Message = message;
         Pilot = pilot;  // ADT Mech
