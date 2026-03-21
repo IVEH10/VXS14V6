@@ -1,0 +1,7 @@
+- type: loadoutGroup
+  id: OuterSyndicate
+  name: loadout-group-vxs-outer
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - OuterVestWebLoadout

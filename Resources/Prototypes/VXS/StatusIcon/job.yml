@@ -29,3 +29,67 @@
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: SFParamed
   jobName: Corpsman
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconCommanderSolfed
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SolFed
+  jobName: Commander
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPilotSolfed
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SFPilot
+  jobName: Pilot
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndyCommander
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SFSolider
+  jobName: FieldCommander
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndyOperative
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SFSolider
+  jobName: Operative
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndyMarksman
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SFSolider
+  jobName: Marksman
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndyAssaulter
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SFSolider
+  jobName: Assaulter
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndyMedic
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SFParamed
+  jobName: CombatMedic
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndyPilot
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: SFPilot
+  jobName: SyndyPilot

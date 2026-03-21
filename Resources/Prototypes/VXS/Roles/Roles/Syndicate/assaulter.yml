@@ -1,0 +1,32 @@
+- type: job
+  id: SyndyAssaulter
+  name: Assaulter
+  description: Breach, clear and secure. You are the tip of the spear.
+  playTimeTracker: JobSyndyAssaulter
+  startingGear: SyndyAssaulterGear
+  icon: "JobIconSyndyAssaulter"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  requirements:
+  - !type:AgeRequirement # Minimum 18
+    requiredAge: 18
+  - !type:AgeRequirement # Maximum 45
+    requiredAge: 45
+    inverted: true
+  - !type:SpeciesRequirement
+    species:
+    - Human
+  access:
+  - Maintenance
+  - External
+  components:
+  - type: RoleTicketCost
+    ticketCost: 1
+    deathMessage: "Syndy Assaulter KIA. -1 ticket"
+
+- type: startingGear
+  id: SyndyAssaulterGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    id: DogtagSyndyAssaulter
+    ears: ClothingHeadsetAltSyndy

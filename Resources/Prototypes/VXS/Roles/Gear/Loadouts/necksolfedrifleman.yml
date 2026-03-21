@@ -34,3 +34,57 @@
       time: 360000 # 100h
   equipment:
     neck: ShoulderboardSolfedSergeant
+
+- type: loadout
+  id: NeckShoulderboardCPLPilot
+  equipment:
+    neck: ShoulderboardSolfedCapral
+
+- type: loadout
+  id: NeckShoulderboardSGTPilot
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSFPilot
+      time: 21600 # 6h
+  equipment:
+    neck: ShoulderboardSolfedSergeant
+
+- type: loadout
+  id: NeckShoulderboardSSGTPilot
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSFPilot
+      time: 360000 # 100h
+  equipment:
+    neck: ShoulderboardSolfedStarshina
+
+- type: loadout
+  id: NeckShoulderboardSSGTCommander
+  equipment:
+    neck: ShoulderboardSolfedStarshina
+
+- type: loadout
+  id: NeckShoulderboardLtColCommander
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSFCommander
+      time: 21600 # 6h
+  equipment:
+    neck: ShoulderboardSolfedLieutenantColonel
+
+- type: loadout
+  id: NeckShoulderboardColCommander
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobSFCommander
+      time: 360000 # 100h
+  equipment:
+    neck: ShoulderboardSolfedColonel

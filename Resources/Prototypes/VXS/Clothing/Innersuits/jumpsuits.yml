@@ -12,6 +12,14 @@
     maxChevrons: 4
 
 - type: entity
+  parent: ClothingUniformJumpsuitSolar
+  id: ClothingUniformJumpsuitSolarSolfed
+  components:
+  - type: ChevronSlot
+    attachedChevronPrototypes:
+    - ChevronTeamSolfed
+
+- type: entity
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitSolarGray
   name: solgov gray army uniform
@@ -25,6 +33,14 @@
     maxChevrons: 4
 
 - type: entity
+  parent: ClothingUniformJumpsuitSolarGray
+  id: ClothingUniformJumpsuitSolarGraySolfed
+  components:
+  - type: ChevronSlot
+    attachedChevronPrototypes:
+    - ChevronTeamSolfed
+
+- type: entity
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitSolarGold
   name: solgov officer army uniform
@@ -36,6 +52,14 @@
     sprite: VXS/Clothing/Innersuits/tsf_gold.rsi
   - type: ChevronSlot
     maxChevrons: 4
+
+- type: entity
+  parent: ClothingUniformJumpsuitSolarGold
+  id: ClothingUniformJumpsuitSolarGoldSolfed
+  components:
+  - type: ChevronSlot
+    attachedChevronPrototypes:
+    - ChevronTeamSolfed
 
 - type: entity
   parent: UnsensoredClothingUniformBase

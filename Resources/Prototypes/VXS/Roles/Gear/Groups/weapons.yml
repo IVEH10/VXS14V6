@@ -24,3 +24,52 @@
   loadouts:
   - WeaponRifleLecterLoadout
   - WeaponSMGWT550Loadout
+
+- type: loadoutGroup
+  id: WeaponsSyndyOperative
+  name: loadout-group-vxs-weapons
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WeaponM90GLLoadout
+  - WeaponVereskLoadout
+  - WeaponC20RLoadout
+
+- type: loadoutGroup
+  id: WeaponsSyndyMarksman
+  name: loadout-group-vxs-weapons
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WeaponSvyatLoadout
+  - WeaponHristovLoadout
+
+- type: loadoutGroup
+  id: WeaponsSyndyMarksmanSMG
+  name: loadout-group-vxs-weapons-secondary
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - WeaponVereskLoadout
+
+- type: loadoutGroup
+  id: WeaponsSyndyAssaulter
+  name: loadout-group-vxs-weapons
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WeaponEstocDMRLoadout
+  - WeaponL6SawLoadout
+  - WeaponBulldogLoadout
+  - WeaponM90GLLoadout
+  - WeaponVereskLoadout
+  - WeaponC20RLoadout
+
+- type: loadoutGroup
+  id: WeaponsSyndyPilot
+  name: loadout-group-vxs-weapons
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - WeaponVereskLoadout
+  - WeaponC20RLoadout

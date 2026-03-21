@@ -41,3 +41,21 @@
   - ClothingBeltMilitaryWebbingLecter
   - ClothingBeltMilitaryWebbingLecterCrowbarLoadout
   - ClothingBeltMilitaryWebbingWTLoadout
+
+- type: loadoutGroup
+  id: BeltsSyndy
+  name: loadout-group-vxs-belts
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingBeltMilitaryWebbingWTLoadout
+  - ClothingBeltMilitaryWebbingLecterGrenadesLoadout
+
+- type: loadoutGroup
+  id: BeltsSyndyMarksman
+  name: loadout-group-vxs-belts
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ClothingBeltMilitaryWebbingExhaustLoadout
+  - ClothingBeltMilitaryWebbingWTLoadout

@@ -9,3 +9,27 @@
 
 - type: playTimeTracker
   id: JobSFCorpsman
+
+- type: playTimeTracker
+  id: JobSFCommander
+
+- type: playTimeTracker
+  id: JobSFPilot
+
+- type: playTimeTracker
+  id: JobSyndyCommander
+
+- type: playTimeTracker
+  id: JobSyndyOperative
+
+- type: playTimeTracker
+  id: JobSyndyMarksman
+
+- type: playTimeTracker
+  id: JobSyndyAssaulter
+
+- type: playTimeTracker
+  id: JobSyndyMedic
+
+- type: playTimeTracker
+  id: JobSyndyPilot

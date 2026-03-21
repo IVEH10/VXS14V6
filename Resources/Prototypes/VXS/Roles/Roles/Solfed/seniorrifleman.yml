@@ -27,7 +27,7 @@
 - type: startingGear
   id: SolfedSeniorRiflemanGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSolarGray
+    jumpsuit: ClothingUniformJumpsuitSolarGraySolfed
     id: DogtagSolfedSeniorRifleman
     ears: ClothingHeadsetAltSOLFED
   storage:

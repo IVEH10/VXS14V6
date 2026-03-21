@@ -9,3 +9,9 @@
   storage:
     back:
     - WeaponLauncherHandheldDisposalThermobaric
+
+- type: loadout
+  id: SpecialSyndyMarksmanLoadout
+  equipment:
+    pocket1: Rangefinder
+    pocket2: HandheldGPSBasic

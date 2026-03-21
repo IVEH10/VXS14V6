@@ -9,3 +9,19 @@
   - SolfedSeniorRifleman
   - SolfedEngineer
   - SolfedCorpsman
+  - SolfedCommander
+  - SolfedPilot
+
+- type: department
+  id: SyndyArmedForces
+  name: 110 AGr SOF Triglav
+  description: Syndicate special operations group. Try to not kill civillians if you encounter ones.
+  color: "#CC3333"
+  weight: 1
+  roles:
+  - SyndyCommander
+  - SyndyOperative
+  - SyndyMarksman
+  - SyndyAssaulter
+  - SyndyMedic
+  - SyndyPilot

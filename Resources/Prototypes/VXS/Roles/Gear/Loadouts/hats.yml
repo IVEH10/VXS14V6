@@ -7,3 +7,8 @@
   id: HatSolarFASTHelmet
   equipment:
     head: ClothingHeadHelmetTacticalKevlar
+
+- type: loadout
+  id: HatMercHelmet
+  equipment:
+    head: ClothingHeadHelmetMerc

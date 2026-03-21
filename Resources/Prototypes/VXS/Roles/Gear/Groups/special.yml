@@ -7,3 +7,11 @@
   loadouts:
   - C4BoxLoadout
   - ThermobaricHADGL
+
+- type: loadoutGroup
+  id: SpecialSyndyMarksman
+  name: loadout-group-vxs-special
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - SpecialSyndyMarksmanLoadout
